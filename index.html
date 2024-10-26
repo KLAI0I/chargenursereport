@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charge Nurse Report</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Charge Nurse Report</h1>
+    </div>
+
+    <!-- Date and Shift Section -->
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="date">Date:</label>
+            <input type="text" class="form-control" id="date" placeholder="Enter date (e.g., .... / .... / ....)">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="shift">Shift</label>
+            <input type="text" class="form-control" id="shift" placeholder="Enter shift details (e.g., Day/Night)">
+        </div>
+    </div>
+
+    <!-- Attendance Entry Fields -->
+    <div class="section-title">Shift Attendance Details</div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label for="p1">P1</label>
+            <input type="text" class="form-control" id="p1" placeholder="Enter details for P1">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="p3">P3</label>
+            <input type="text" class="form-control" id="p3" placeholder="Enter details for P3">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="c2">C2</label>
+            <input type="text" class="form-control" id="c2" placeholder="Enter details for C2">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="absent">Absent</label>
+            <input type="text" class="form-control" id="absent" placeholder="Enter details for Absent">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label for="n1">N1</label>
+            <input type="text" class="form-control" id="n1" placeholder="Enter details for N1">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="n2">N2</label>
+            <input type="text" class="form-control" id="n2" placeholder="Enter details for N2">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="n3">N3</label>
+            <input type="text" class="form-control" id="n3" placeholder="Enter details for N3">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="n4">N4</label>
+            <input type="text" class="form-control" id="n4" placeholder="Enter details for N4">
+        </div>
+    </div>
+
+    <!-- CPR Team Section -->
+    <div class="section-title">CPR Team</div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label for="chestCompression">Chest Compression</label>
+            <input type="text" class="form-control" id="chestCompression" placeholder="Enter details">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="ivAccessMedication">IV Access & Medication</label>
+            <input type="text" class="form-control" id="ivAccessMedication" placeholder="Enter details">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="airway">Airway</label>
+            <input type="text" class="form-control" id="airway" placeholder="Enter details">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="monitorDefibrillator">Monitor & Defibrillator</label>
+            <input type="text" class="form-control" id="monitorDefibrillator" placeholder="Enter details">
+        </div>
+    </div>
+
+    <!-- Narcotic Section -->
+    <div class="section-title">Narcotic</div>
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label for="midazolam">Midazolam</label>
+            <input type="text" class="form-control" id="midazolam" placeholder="Enter details">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="fentanyl">Fentanyl</label>
+            <input type="text" class="form-control" id="fentanyl" placeholder="Enter details">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="tramal">Tramal</label>
+            <input type="text" class="form-control" id="tramal" placeholder="Enter details">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="diazepam">Diazepam</label>
+            <input type="text" class="form-control" id="diazepam" placeholder="Enter details">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="morphine">Morphine</label>
+            <input type="text" class="form-control" id="morphine" placeholder="Enter details">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="ketamine">Ketamine</label>
+            <input type="text" class="form-control" id="ketamine" placeholder="Enter details">
+        </div>
+    </div>
+
+    <!-- Biomedical Gas Section -->
+    <div class="section-title">Biomedical Gas</div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="cylinderStock">Cylinder Stock</label>
+            <input type="text" class="form-control" id="cylinderStock" placeholder="Enter details">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="crashCartCylinder">Crash Cart Cylinder Amount</label>
+            <input type="text" class="form-control" id="crashCartCylinder" placeholder="Enter details">
+        </div>
+    </div>
+
+    <!-- CSSD Section -->
+    <div class="section-title">CSSD</div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="itemsSent">Items Sent</label>
+            <input type="text" class="form-control" id="itemsSent" placeholder="Enter details">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="itemsReceived">Items Received</label>
+            <input type="text" class="form-control" id="itemsReceived" placeholder="Enter details">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="cssdRemarks">Remarks</label>
+            <input type="text" class="form-control" id="cssdRemarks" placeholder="Enter remarks">
+        </div>
+    </div>
+
+    <!-- Utility Room Section -->
+    <div class="section-title">Utility Room</div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="linenStock">Linen Stock</label>
+            <input type="text" class="form-control" id="linenStock" placeholder="Enter details">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="utilityRemarks">Remarks</label>
+            <input type="text" class="form-control" id="utilityRemarks" placeholder="Enter remarks">
+        </div>
+    </div>
+
+    <!-- Maintenance Section -->
+    <div class="section-title">Maintenance</div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="generalMaintenance">General Maintenance</label>
+            <input type="text" class="form-control" id="generalMaintenance" placeholder="Enter details">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="biomedicalMaintenance">Biomedical Maintenance</label>
+            <input type="text" class="form-control" id="biomedicalMaintenance" placeholder="Enter details">
+        </div>
+    </div>
+
+    <!-- CMH Logs Section -->
+    <div class="section-title">CMH Logs</div>
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label for="cmhLogs">CMH Logs</label>
+            <textarea class="form-control" id="cmhLogs" rows="3" placeholder="Enter logs"></textarea>
+        </div>
+    </div>
+
+    <!-- To Refill Section -->
+    <div class="section-title">To Refill</div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="medicationsNeedsToRefill">Medications Needs to Refill</label>
+            <input type="text" class="form-control" id="medicationsNeedsToRefill" placeholder="Enter details">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="itemsNeedsToRefill">Items Needs to Refill</label>
+            <input type="text" class="form-control" id="itemsNeedsToRefill" placeholder="Enter details">
+        </div>
+    </div>
+
+    <button class="btn btn-primary" id="printReport">Print Report</button>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="scripts.js"></script> <!-- Link to external JavaScript -->
+</body>
+</html>
