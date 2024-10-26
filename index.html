@@ -5,7 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Charge Nurse Report</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
+    <style>
+        body {
+            background-color: #f7f7f7;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 20px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            background-color: #1538a4;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .section-title {
+            font-size: 18px;
+            color: white;
+            background-color: #33a2ff;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+    </style>
 </head>
 <body>
 
@@ -175,9 +211,91 @@
     <!-- CMH Logs Section -->
     <div class="section-title">CMH Logs</div>
     <div class="form-row">
-        <div class="form-group col-md-12">
-            <label for="cmhLogs">CMH Logs</label>
-            <textarea class="form-control" id="cmhLogs" rows="3" placeholder="Enter logs"></textarea>
+        <div class="form-group col-md-6">
+            <label>Logs:</label><br>
+            <input type="radio" name="cmhLogs" id="allChecked" value="allChecked" onclick="toggleCMHLogs(false)">
+            <label for="allChecked">All Checked</label><br>
+            <input type="radio" name="cmhLogs" id="allExcept" value="allExcept" onclick="toggleCMHLogs(true)">
+            <label for="allExcept">All Checked Except</label>
+        </div>
+    </div>
+    <div id="cmhLogsDetails" style="display: none;">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="staffNurseAssigned">Staff Nurse Assigned</label>
+                <input type="text" class="form-control" id="staffNurseAssigned" placeholder="Enter nurse name">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="logDetails">Log?</label>
+                <input type="text" class="form-control" id="logDetails" placeholder="Enter log details">
+            </div>
+        </div>
+    </div>
+
+    <!-- Events Section -->
+    <div class="section-title">Events</div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Event Status:</label><br>
+            <input type="radio" name="eventStatus" id="eventYes" value="eventYes" onclick="toggleEventDetails(true)">
+            <label for="eventYes">There is an event</label><br>
+            <input type="radio" name="eventStatus" id="eventNo" value="eventNo" onclick="toggleEventDetails(false)">
+            <label for="eventNo">There are no events</label>
+        </div>
+    </div>
+    <div id="eventDetails" style="display: none;">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="staffPatientInvolved">Staff/Patient Involved</label>
+                <input type="text" class="form-control" id="staffPatientInvolved" placeholder="Enter details">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="eventDescription">Description</label>
+                <input type="text" class="form-control" id="eventDescription" placeholder="Enter details">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="eventAction">Action</label>
+                <input type="text" class="form-control" id="eventAction" placeholder="Enter action taken">
+            </div>
+        </div>
+    </div>
+
+    <!-- Spotlight Report Section -->
+    <div class="section-title">Spotlight Report</div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Spotlight Report:</label><br>
+            <input type="radio" name="spotlightReport" id="spotlightYes" value="spotlightYes" onclick="toggleSpotlightDetails(true)">
+            <label for="spotlightYes">Yes</label><br>
+            <input type="radio" name="spotlightReport" id="spotlightNo" value="spotlightNo" onclick="toggleSpotlightDetails(false)">
+            <label for="spotlightNo">No</label>
+        </div>
+    </div>
+    <div id="spotlightDetails" style="display: none;">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="reportLevel">Select Level:</label><br>
+                <input type="radio" name="reportLevel" id="unitLevel" value="unitLevel">
+                <label for="unitLevel">Unit Level</label><br>
+                <input type="radio" name="reportLevel" id="departmentalLevel" value="departmentalLevel">
+                <label for="departmentalLevel">Departmental Level</label><br>
+                <input type="radio" name="reportLevel" id="executiveLevel" value="executiveLevel">
+                <label for="executiveLevel">Executive Level</label>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="spotlightDescription">Description</label>
+                <input type="text" class="form-control" id="spotlightDescription" placeholder="Enter description">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="spotlightFeedback">Feedback</label>
+                <input type="text" class="form-control" id="spotlightFeedback" placeholder="Enter feedback">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="spotlightStatus">Status</label>
+                <input type="text" class="form-control" id="spotlightStatus" placeholder="Enter status">
+            </div>
         </div>
     </div>
 
@@ -185,21 +303,89 @@
     <div class="section-title">To Refill</div>
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="medicationsNeedsToRefill">Medications Needs to Refill</label>
-            <input type="text" class="form-control" id="medicationsNeedsToRefill" placeholder="Enter details">
+            <label for="medicationsToRefill">Medications Needs to Refill</label>
+            <input type="text" class="form-control" id="medicationsToRefill" placeholder="Enter medication name">
+            <input type="number" class="form-control mt-2" id="medicationsCount" placeholder="Count">
         </div>
         <div class="form-group col-md-6">
-            <label for="itemsNeedsToRefill">Items Needs to Refill</label>
-            <input type="text" class="form-control" id="itemsNeedsToRefill" placeholder="Enter details">
+            <label for="itemsToRefill">Items Needs to Refill</label>
+            <input type="text" class="form-control" id="itemsToRefill" placeholder="Enter item name">
+            <input type="number" class="form-control mt-2" id="itemsCount" placeholder="Count">
         </div>
     </div>
 
-    <button class="btn btn-primary" id="printReport">Print Report</button>
+    <button type="button" class="btn btn-primary" onclick="submitData()">Submit</button>
+    <button type="button" class="btn btn-secondary" onclick="printData()">Print</button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="dataModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Submitted Data</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Submitted data will be shown here -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="scripts.js"></script> <!-- Link to external JavaScript -->
+<script>
+    function toggleCMHLogs(show) {
+        document.getElementById('cmhLogsDetails').style.display = show ? 'block' : 'none';
+    }
+
+    function toggleEventDetails(show) {
+        document.getElementById('eventDetails').style.display = show ? 'block' : 'none';
+    }
+
+    function toggleSpotlightDetails(show) {
+        document.getElementById('spotlightDetails').style.display = show ? 'block' : 'none';
+    }
+
+    function submitData() {
+        let modalBody = 
+            <p><strong>Date:</strong> ${document.getElementById('date').value}</p>
+            <p><strong>Shift:</strong> ${document.getElementById('shift').value}</p>
+            <p><strong>P1:</strong> ${document.getElementById('p1').value}</p>
+            <p><strong>P3:</strong> ${document.getElementById('p3').value}</p>
+            <p><strong>C2:</strong> ${document.getElementById('c2').value}</p>
+            <p><strong>Absent:</strong> ${document.getElementById('absent').value}</p>
+            <p><strong>N1:</strong> ${document.getElementById('n1').value}</p>
+            <p><strong>N2:</strong> ${document.getElementById('n2').value}</p>
+            <p><strong>General Maintenance:</strong> ${document.getElementById('generalMaintenance').value}</p>
+            <p><strong>Biomedical Maintenance:</strong> ${document.getElementById('biomedicalMaintenance').value}</p>
+            <p><strong>Staff Nurse Assigned:</strong> ${document.getElementById('staffNurseAssigned').value}</p>
+            <p><strong>Log Details:</strong> ${document.getElementById('logDetails').value}</p>
+            <p><strong>Staff/Patient Involved:</strong> ${document.getElementById('staffPatientInvolved').value}</p>
+            <p><strong>Event Description:</strong> ${document.getElementById('eventDescription').value}</p>
+            <p><strong>Event Action:</strong> ${document.getElementById('eventAction').value}</p>
+            <p><strong>Spotlight Level:</strong> ${document.querySelector('input[name="reportLevel"]:checked') ? document.querySelector('input[name="reportLevel"]:checked').nextSibling.nodeValue : ''}</p>
+            <p><strong>Spotlight Description:</strong> ${document.getElementById('spotlightDescription').value}</p>
+            <p><strong>Spotlight Feedback:</strong> ${document.getElementById('spotlightFeedback').value}</p>
+            <p><strong>Spotlight Status:</strong> ${document.getElementById('spotlightStatus').value}</p>
+            <p><strong>Medications to Refill:</strong> ${document.getElementById('medicationsToRefill').value} (Count: ${document.getElementById('medicationsCount').value})</p>
+            <p><strong>Items to Refill:</strong> ${document.getElementById('itemsToRefill').value} (Count: ${document.getElementById('itemsCount').value})</p>
+        ;
+        document.getElementById('modalBody').innerHTML = modalBody;
+        $('#dataModal').modal('show');
+    }
+
+    function printData() {
+        window.print();
+    }
+</script>
+
 </body>
 </html>
