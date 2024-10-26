@@ -355,7 +355,7 @@
     }
 
     function submitData() {
-        let modalBody = 
+        let modalBody = `
             <p><strong>Date:</strong> ${document.getElementById('date').value}</p>
             <p><strong>Shift:</strong> ${document.getElementById('shift').value}</p>
             <p><strong>P1:</strong> ${document.getElementById('p1').value}</p>
@@ -377,7 +377,7 @@
             <p><strong>Spotlight Status:</strong> ${document.getElementById('spotlightStatus').value}</p>
             <p><strong>Medications to Refill:</strong> ${document.getElementById('medicationsToRefill').value} (Count: ${document.getElementById('medicationsCount').value})</p>
             <p><strong>Items to Refill:</strong> ${document.getElementById('itemsToRefill').value} (Count: ${document.getElementById('itemsCount').value})</p>
-        ;
+        `;
         document.getElementById('modalBody').innerHTML = modalBody;
         $('#dataModal').modal('show');
     }
